@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalle Koivuniemi's Portfolio</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="nav-item">
+          <a class="navButton" href="#about">About Me</a>
+          <div class="underline-box"></div>
+        </div>
+
+        <div class="nav-item">
+          <a class="navButton" href="#projects">My Projects</a>
+          <div class="underline-box"></div>
+        </div>
+
+        <div class="nav-item">
+          <a class="navButton" href="#contact">Contact Me</a>
+          <div class="underline-box"></div>
+        </div>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle">
+        <span class="toggle-icon">🌙</span>
+        <span>Dark Mode</span>
+      </button>
+
+      <div class="container">
+        <h1 class="animated-text">Welcome to My Portfolio</h1>
+        <img
+          src="images\ChatGPT Image May 13, 2025 at 12_47_36 PM.png"
+          alt="Profile Image"
+          class="profile-img"
+        />
+        <p>It's a work in progress, but I guess I am too.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hello! My name is Kallle Koivuniemi. I'm a currently a student at
+          Helsinki Business College, learning to code with Javascript, HTML and
+          CSS. I will soon be expanding my repertoire of coding into the likes
+          of WordPress, Python and many more.
+        </p>
+        <p>
+          I also have a Master's Degree in International Politics from the
+          University of Helsinki.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="projects">
+          <a
+            href="testimonials-grid-section-main\testimonials-grid-section-main\index.html"
+            ><div class="project-item">
+              <div class="project-container"><h3>Testimonials</h3></div>
+              <p class="project-description">
+                Implementing CSS design based on FrontendMentor. No
+                functionality.
+              </p>
+            </div></a
+          >
+          <a href="time-tracking-dashboard-main\index.html"
+            ><div class="project-item">
+              <div class="project-container"><h3>Time Tracking</h3></div>
+              <p class="project-description">
+                Implementing CSS design based on FrontendMentor. No
+                functionality.
+              </p>
+            </div></a
+          >
+
+          <a href="pannukakku_vaihe3\pannukakku3.html"
+            ><div class="project-item">
+              <div class="project-container"><h3>Pancake Delivery</h3></div>
+              <p class="project-description">
+                Implementing javascript and JSON. Not a visual showcase.
+              </p>
+            </div></a
+          >
+
+          <div class="project-item">
+            <div class="project-container"><h3>Magic Eight-Ball</h3></div>
+            <p class="project-description">Coming soon...</p>
+          </div>
+          <div class="project-item">
+            <div class="project-container"><h3>Zoo</h3></div>
+            <p class="project-description">Coming soon...</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <form
+          class="contact-form"
+          onsubmit="event.preventDefault(); formSubmitted()"
+        >
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </div>
+
+    <button id="backToTopBtn" style="display: none">⬆ Back to Top</button>
+
+    <footer>
+      <div class="container">
+        <p></p>
+      </div>
+    </footer>
+
+    <script>
+      // submission form
+      function formSubmitted() {
+        alert(
+          "Thank you for your message! This form doesn't actually submit data as this is a demo page."
+        );
+      }
+
+      // dark theme toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const toggleIcon = themeToggle.querySelector(".toggle-icon");
+      const toggleText = themeToggle.querySelector("span:not(.toggle-icon)");
+
+      const currentTheme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+
+      if (currentTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleIcon.textContent = "☀️";
+        toggleText.textContent = "Light Mode";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+
+        toggleIcon.textContent = isDark ? "☀️" : "🌙";
+        toggleText.textContent = isDark ? "Light Mode" : "Dark Mode";
+
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // back to top button
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+      href="images/"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        background: hsl(226, 43%, 10%);
+        color: whitesmoke;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "Rubik", sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .widgetsContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+        width: 90vw;
+        max-width: 1400px;
+        min-height: 50vh;
+        margin-bottom: 20px;
+      }
+
+      /* main widget with client info*/
+
+      .mainWidget {
+        background: hsl(235, 46%, 20%);
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+
+      .clientInfo {
+        background-color: hsl(246, 80%, 60%);
+        border-radius: 20px;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-height: 400px;
+        min-height: 200px;
+      }
+
+      .clientInfo img {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid white;
+      }
+      .clientName {
+        margin-top: 3em;
+        margin-bottom: 2em;
+      }
+      .timeframes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-grow: 1;
+        padding: 2em;
+      }
+      .timeframes span {
+        color: hsl(235, 45%, 61%);
+      }
+      .timeframes span:hover {
+        color: aliceblue;
+        cursor: pointer;
+      }
+
+      .hoursDisplay {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /*other widgets for activities*/
+
+      .widgets {
+        position: relative;
+        border-radius: 20px;
+        min-height: 200px;
+        display: flex;
+        overflow: hidden;
+        margin: 0;
+      }
+      .widgetsDisplay {
+        background-color: hsl(235, 46%, 20%);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-grow: 1;
+        padding: 2em;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .widgets:hover .widgetsDisplay {
+        background-color: hsl(235, 45%, 61%);
+        cursor: pointer;
+      }
+
+      /* background colors for widgets */
+
+      #work {
+        background-color: hsl(15, 100%, 70%);
+      }
+      #play {
+        background-color: hsl(195, 74%, 62%);
+      }
+      #study {
+        background-color: hsl(348, 100%, 68%);
+      }
+      #exercise {
+        background-color: hsl(145, 58%, 55%);
+      }
+      #social {
+        background-color: hsl(264, 64%, 52%);
+      }
+      #selfCare {
+        background-color: hsl(43, 84%, 65%);
+      }
+      .cornerIcon {
+        position: absolute;
+        top: -10px;
+        right: 10px;
+      }
+
+      /* attributes*/
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      .clientName .smallText {
+        display: block;
+      }
+      .smallText {
+        color: hsl(236, 100%, 87%);
+        font-weight: 300;
+        font-size: 1rem;
+      }
+      .regularText {
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
+      .largeText {
+        font-weight: 500;
+        font-size: 3rem;
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .activityTitle {
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+
+      .settings-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px 12px;
+        color: aliceblue;
+        line-height: 1;
+      }
+
+      /*mobile settings*/
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+          align-items: stretch;
+        }
+
+        .widgetsContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+          max-width: 100%;
+          min-height: auto;
+        }
+
+        .mainWidget {
+          grid-column: unset;
+          grid-row: unset;
+          min-height: auto;
+        }
+
+        .clientInfo {
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+          min-height: auto;
+          max-height: none;
+          padding: 1.5em;
+        }
+
+        .clientInfo img {
+          width: 60px;
+          height: 60px;
+          margin: 0;
+        }
+
+        .clientName {
+          margin: 0;
+        }
+
+        .clientName .largeText {
+          font-size: 1.5rem;
+        }
+
+        .timeframes {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 1.5em;
+        }
+
+        .widgets {
+          min-height: 200px;
+        }
+
+        .widgetsDisplay {
+          padding: 1.5em;
+        }
+
+        .largeText {
+          font-size: 2rem;
+        }
+
+        .hoursDisplay {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="widgetsContainer">
+      <!-- main widget -->
+      <div class="mainWidget">
+        <div class="clientInfo">
+          <img
+            src="images/image-jeremy.png"
+            alt="Jeremy Robson profile picture"
+          />
+          <div class="clientName">
+            <span class="smallText">Report for</span>
+            <span class="largeText">Jeremy Robson</span>
+          </div>
+        </div>
+        <div class="timeframes">
+          <span>Daily</span>
+          <span>Weekly</span>
+          <span>Monthly</span>
+        </div>
+      </div>
+
+      <!-- work widget -->
+      <div class="widgets" id="work">
+        <img src="images/icon-work.svg" alt="work icon" class="cornerIcon" />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Work</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">5hrs</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 7hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- work widget -->
+      <div class="widgets" id="play">
+        <img src="images/icon-play.svg" alt="play icon" class="cornerIcon" />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Play</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">1hr</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 2hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- study sidget -->
+      <div class="widgets" id="study">
+        <img src="images/icon-study.svg" alt="study icon" class="cornerIcon" />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Study</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">0hrs</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 1hr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- exercise widget -->
+      <div class="widgets" id="exercise">
+        <img
+          src="images/icon-exercise.svg"
+          alt="exercise icon"
+          class="cornerIcon"
+        />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Exercise</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">1hr</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 1hr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- social widget -->
+      <div class="widgets" id="social">
+        <img
+          src="images/icon-social.svg"
+          alt="social icon"
+          class="cornerIcon"
+        />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Social</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">1hr</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 3hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- self care widget -->
+      <div class="widgets" id="selfCare">
+        <img
+          src="images/icon-self-care.svg"
+          alt="self care icon"
+          class="cornerIcon"
+        />
+        <div class="widgetsDisplay">
+          <div class="title-row">
+            <div class="activityTitle">Self Care</div>
+            <button class="settings-button">⋯</button>
+          </div>
+          <div class="hoursDisplay">
+            <div class="currentHours"><span class="largeText">0hrs</span></div>
+            <div class="previousHours">
+              <span class="smallText">Previous - 1hr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Kallle Koivuniemi</a>.
+    </div>
+  </body>
+</html>
