@@ -91,6 +91,10 @@
         display: block;
       }
 
+      #about p {
+    text-align: justify;
+}
+
       section {
         background: var(--section-bg);
         padding: 2rem;
