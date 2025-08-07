@@ -135,6 +135,8 @@
         margin: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         transform: translateY(0);
+        max-width: auto;
+        height: 8rem;
       }
 
       .project-item:hover {
@@ -145,7 +147,7 @@
 
       footer {
         text-align: center;
-        padding: 2rem;
+        padding: 4rem 2rem;
         background: var(--footer-bg);
         color: var(--footer-text);
       }
