@@ -166,8 +166,10 @@
       #contact {
           padding: 2rem;
           box-sizing: border-box;
-          
         }
+      .contact-form {
+        text-align: center;
+      }
       .contact-form input,
       .contact-form textarea {
         width: 100%;
@@ -183,6 +185,8 @@
         background: #6e8efb;
         color: white;
         border: none;
+        width: 10vw;
+        height: 3vh;
         padding: 10px 20px;
         border-radius: 4px;
         cursor: pointer;
