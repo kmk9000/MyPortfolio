@@ -162,6 +162,12 @@
           color: yellow;
         }
       }
+
+      #contact {
+          padding: 2rem;
+          box-sizing: border-box;
+          
+        }
       .contact-form input,
       .contact-form textarea {
         width: 100%;
@@ -263,7 +269,6 @@
         /* Make project items full width on mobile */
         .project-item {
           width: 100%;
-          margin: 10px 0;
           box-sizing: border-box;
           height: 35vh;
           }
@@ -288,6 +293,9 @@
         section {
           padding: 1.5rem;
         }
+        #contact {
+          padding: 1.5rem;
+          }
       }
 
       /* For very small screens */
@@ -305,6 +313,11 @@
           padding: 0 15px;
         }
 
+        .projects {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
         .project-item {
           padding: 15px;
         }
@@ -317,6 +330,18 @@
 
         .project-item:hover {
           transform: translateY(-5px); /* Smaller lift on mobile */
+        }
+
+        
+        .contact-form input,
+        .contact-form textarea {
+          width: 100%;
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+          box-sizing: border-box;
+        }
+        .contact-form button {
+          width: 100%;
         }
       }
       /* code from AI ends here*/
