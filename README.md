@@ -10,17 +10,16 @@ Showcases my projects, with projects showcasing various individual implementatio
 
 These are CSS showcases, focusing on CSS implementation and may not contain any real functionality.
 
-[Time Tracking Dashboard.](https://kmk9000.github.io/MyPortfolio/time-tracking-dashboard-main/index.html
-) (Frontend Mentor Challenge)
+* [Time Tracking Dashboard.](https://kmk9000.github.io/MyPortfolio/time-tracking-dashboard-main/index.html) (Frontend Mentor Challenge: Junior)
 
-[Testimonials Grid Section.](https://kmk9000.github.io/MyPortfolio/testimonials-grid-section-main/testimonials-grid-section-main/index.html) (Frontend Mentor Challenge)
+* [Testimonials Grid Section.](https://kmk9000.github.io/MyPortfolio/testimonials-grid-section-main/testimonials-grid-section-main/index.html) (Frontend Mentor Challenge: Junior)
 
-[Flexfest Info Page.](https://kmk9000.github.io/MyPortfolio/flexfest/flexfest.html)
+* [Flexfest Info Page.](https://kmk9000.github.io/MyPortfolio/flexfest/flexfest.html)
 
 ### Javascript showcases
 
 These are javacript showcases, focusing on javascript implementation and may not look very visually appealing.
 
-[Pancake Orders: Local Storage](https://kmk9000.github.io/MyPortfolio/pannukakku_vaihe3/pannukakku3.html)
+* [Pancake Orders: Local Storage](https://kmk9000.github.io/MyPortfolio/pannukakku_vaihe3/pannukakku3.html)
 
-[Zoo: Animal Type Database](https://kmk9000.github.io/MyPortfolio/pikku_eläintarha/index.html)
+* [Zoo: Animal Type Database](https://kmk9000.github.io/MyPortfolio/pikku_eläintarha/index.html)
