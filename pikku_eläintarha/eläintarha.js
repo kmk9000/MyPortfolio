@@ -73,3 +73,5 @@ function filterAnimals() {
 
   displayAnimals(filteredAnimals);
 }
+
+displayAnimals(animals);
