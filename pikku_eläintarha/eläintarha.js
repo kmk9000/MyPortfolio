@@ -39,7 +39,6 @@ function displayAnimals(animalArray) {
     li.textContent = `${animal.name} (${animal.type})`;
     animalListElement.appendChild(li);
   });
-  renderList();
 }
 
 function addAnimal() {
@@ -67,7 +66,8 @@ function filterAnimals() {
       .toLowerCase()
       .includes(searchInput.value.toLowerCase());
     const typeMatch =
-      filterSelect.value === "Kaikki" || animal.type === filterSelect.value;
+  filterSelect.value === "kaikki" || 
+  animal.type.toLowerCase() === filterSelect.value;
     return nameMatch && typeMatch;
   });
 
